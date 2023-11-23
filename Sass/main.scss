@@ -1,0 +1,275 @@
+//Import Global Rules
+@use './layout/global-rules';
+
+//Import Pages
+@use './pages/contact';
+
+// Global Variable
+$alt-color: green;
+
+// Import Variables
+@use './variables/colors' as *;
+
+.header {
+    color: $alt-color;
+}
+
+.footer {
+    $alt-color: black !global;
+    background-color: $alt-color;
+}
+
+.footer {
+    background-color: $alt-color;
+}
+
+.sidebar {
+    background-color: $main;
+}
+
+
+$max_mobaile: "max-width: 767px";
+
+@media ($max_mobaile) {
+    .sidebar {
+        padding: 20px;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+// Nesting & Parent Element
+
+.parent {
+    font-weight: bold;
+    .child {
+        font-size: 20px;
+        .grand-child {
+            font-size: 15px;
+        }
+    }
+}
+
+.parent-one, .parent-two {
+    padding: 20px;
+    .child {
+        padding: 10px;
+    }
+}
+
+.parent > {
+    .child {
+        font-size: 20px;
+    }
+    .test {
+        font-weight: bold;
+    }
+}
+.parent  {
+    > .child {
+        font-size: 20px;
+    }
+    .test {
+        font-weight: bold;
+    } 
+    +
+    p {
+        font-size: 15px;
+    }
+}
+
+.parent {
+    > {
+        .element-one {
+            font-size: 10px;
+        }
+        .element-two {
+            font-size: 10px;
+        }
+    }
+    .not-direct-child {
+        font-weight: 20px;
+    }
+}
+
+.box {
+    .title {
+        font-size: 10px;
+    }
+    .description {
+        font-size: 8px;
+    }
+    &.red {
+        color: red;
+    }
+    &.green {
+        color: green;
+    }
+    &:hover {
+        background-color: #eee;
+    }
+    &:hover .title {
+        font-weight: bold;
+    }
+    :not(&) {
+        font-weight: normal;
+    }
+    [dir=rtl] & {
+        direction: rtl;
+    }
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+
+// Property Declarations and Placeholder
+
+.box {
+    font-size: 20px;
+    font: {
+        size: 15px;
+        weight: bold;
+    }
+    padding: 10px;
+    margin: auto {
+        top: 10px;
+        bottom: 15px
+    };
+}
+
+//Placeholder
+%main-box {
+    background-color: white;
+    padding: 15px;
+    border: 3px solid #ccc;
+    
+}
+
+.ads {
+    @extend %main-box;
+    font-size: 22px;
+    color: green;
+}
+
+.article {
+    @extend %main-box;
+    font-size: 22px;
+    color: green;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+// Control Flow- if => and Else
+
+$theme: 'light';
+
+.page {
+    @if $theme == 'light' {
+        background-color: white;
+        color: #444;
+    } @else {
+        background-color: #444;
+        color: white;
+    }
+}
+
+$rounded: false;
+// $rounded: true;
+
+.box {
+    @extend %main-box;
+    border-radius: if($rounded, 6px, null);
+}
+
+// practice on if and else if an else
+
+$dirction: 'top';
+
+.arrow-div {
+    @extend %main-box;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin: 50px auto;
+    &::before {
+        content: '';
+        position: absolute;
+        border: 20px solid transparent;
+        @if $dirction == 'top' {
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom-color: red ;
+        } @else if $dirction == 'right' {
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left-color: red ;
+        } @else if $dirction == 'bottom' {
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top-color: red ;
+        } @else if $dirction == 'left' {
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-right-color: red ;
+        } @else {
+            @error "This Direction #{$dirction} is not Valid";
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+// Interpolation and functions
+
+$companyOne: "ali";
+$positionOne: "left";
+
+.ad-#{$companyOne}-#{unique-id()} {
+    font-size: 20px;
+    background-image: url('imgs/#{$companyOne}.png');
+    #{$positionOne}: 0;
+}
+
+$companyTwo: "basam";
+$positionTwo: "right";
+
+.ad-#{$companyTwo} {
+    font-size: 20px;
+    background-image: url('imgs/#{$companyTwo}.png');
+    #{$positionTwo}: 1;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+// Comments
+
+// This Comment will not show in Css File
+
+/* This Comment will show in CSS File but not in the Coprassed Mode */
+
+/*! This Comment will show in CSS File and in the Coprassed Mode */
+
+.box /* Multipla
+Lines
+Comment
+*/{
+    font-size: 20px; // inline Comment
+
+}
+
+/* This Comment Contains Interpolation => #{$companyOne} */
+
+/// Function To Do test test test
+/// 
+/// @param {num}
+/// The Number to Deal With
+/// @return {int}
+
