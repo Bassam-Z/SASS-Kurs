@@ -10,6 +10,9 @@ $alt-color: green;
 // Import Variables
 @use './variables/colors' as *;
 
+// Import Mixins
+@use './helpers/mixins' as *;
+
 .header {
     color: $alt-color;
 }
@@ -273,3 +276,54 @@ Comment
 /// The Number to Deal With
 /// @return {int}
 
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Mixin and include
+
+ul.links {
+    @include list-reset;
+}
+
+@mixin circle($dimensions) {
+    border-radius: 50%;
+    width:$dimensions ;
+    height: $dimensions;
+}
+
+.circle-100 {
+    @include circle(100px);
+    background-color: red;
+    color: white;
+}
+.circle-200 {
+    @include circle(200px);
+    background-color: red;
+    color: white;
+}
+
+.center-circle {
+    @include circle(400px);
+    @include centering;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Loop => For
+
+// @for $i from 1 to 10 // from 1 => 9
+@for $i from 1 through 10 {
+    .class-#{$i}{
+        font-size: #{$i + 10px};
+    }
+}
+
+$dimensions: 0;
+
+@for $i from 1 through 10 {
+    .circle-#{100 + $dimensions}{
+        width: $dimensions + 100px;
+        height: $dimensions + 100px;
+    }
+    $dimensions: $dimensions + 100
+}

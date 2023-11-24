@@ -160,7 +160,7 @@
   border-bottom-color: red;
 }
 
-.ad-ali-ut81feo {
+.ad-ali-ut81fqh {
   font-size: 20px;
   background-image: url("imgs/ali.png");
   left: 0;
@@ -179,4 +179,130 @@
 }
 
 /* This Comment Contains Interpolation => ali */
+ul.links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.circle-100 {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  color: white;
+}
+
+.circle-200 {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  color: white;
+}
+
+.center-circle {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.class-1 {
+  font-size: 11px;
+}
+
+.class-2 {
+  font-size: 12px;
+}
+
+.class-3 {
+  font-size: 13px;
+}
+
+.class-4 {
+  font-size: 14px;
+}
+
+.class-5 {
+  font-size: 15px;
+}
+
+.class-6 {
+  font-size: 16px;
+}
+
+.class-7 {
+  font-size: 17px;
+}
+
+.class-8 {
+  font-size: 18px;
+}
+
+.class-9 {
+  font-size: 19px;
+}
+
+.class-10 {
+  font-size: 20px;
+}
+
+.circle-100 {
+  width: 100px;
+  height: 100px;
+}
+
+.circle-200 {
+  width: 200px;
+  height: 200px;
+}
+
+.circle-300 {
+  width: 300px;
+  height: 300px;
+}
+
+.circle-400 {
+  width: 400px;
+  height: 400px;
+}
+
+.circle-500 {
+  width: 500px;
+  height: 500px;
+}
+
+.circle-600 {
+  width: 600px;
+  height: 600px;
+}
+
+.circle-700 {
+  width: 700px;
+  height: 700px;
+}
+
+.circle-800 {
+  width: 800px;
+  height: 800px;
+}
+
+.circle-900 {
+  width: 900px;
+  height: 900px;
+}
+
+.circle-1000 {
+  width: 1000px;
+  height: 1000px;
+}
 /*# sourceMappingURL=main.css.map */
