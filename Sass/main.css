@@ -160,7 +160,7 @@
   border-bottom-color: red;
 }
 
-.ad-ali-ut81fqh {
+.ad-ali-ugy9s9l {
   font-size: 20px;
   background-image: url("imgs/ali.png");
   left: 0;
@@ -304,5 +304,243 @@ ul.links {
 .circle-1000 {
   width: 1000px;
   height: 1000px;
+}
+
+.red-theme .product {
+  background-color: white;
+  border-bottom: 2px solid red;
+}
+.red-theme .product .title {
+  color: red;
+  font-weight: bold;
+}
+
+.green-theme .product {
+  background-color: white;
+  border-bottom: 2px solid green;
+}
+.green-theme .product .title {
+  color: green;
+  font-weight: bold;
+}
+
+.blue-theme .product {
+  background-color: white;
+  border-bottom: 2px solid blue;
+}
+.blue-theme .product .title {
+  color: blue;
+  font-weight: bold;
+}
+
+.facebook {
+  background-color: blue;
+  color: white;
+}
+.facebook::before {
+  content: "facebook";
+}
+
+.youtube {
+  background-color: red;
+  color: white;
+}
+.youtube::before {
+  content: "youtube";
+}
+
+.github {
+  background-color: black;
+  color: white;
+}
+.github::before {
+  content: "github";
+}
+
+.one {
+  font-size: 20px;
+  background-color: red;
+  color: white;
+  padding: 10px;
+}
+
+.two {
+  font-size: 15px;
+  background-color: green;
+  color: white;
+  padding: 7.5px;
+}
+
+.three {
+  font-size: 22px;
+  background-color: blue;
+  color: white;
+  padding: 11px;
+}
+
+.width-1 {
+  width: 100px;
+  height: 50px;
+}
+
+.width-2 {
+  width: 200px;
+  height: 100px;
+}
+
+.width-3 {
+  width: 300px;
+  height: 150px;
+}
+
+.width-4 {
+  width: 400px;
+  height: 200px;
+}
+
+.width-5 {
+  width: 500px;
+  height: 250px;
+}
+
+.width-6 {
+  width: 600px;
+  height: 300px;
+}
+
+.width-7 {
+  width: 700px;
+  height: 350px;
+}
+
+.width-8 {
+  width: 800px;
+  height: 400px;
+}
+
+.width-9 {
+  width: 900px;
+  height: 450px;
+}
+
+.width-10 {
+  width: 1000px;
+  height: 500px;
+}
+
+.col-1 {
+  width: 8.3333333333%;
+}
+
+.col-2 {
+  width: 16.6666666667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333333333%;
+}
+
+.col-5 {
+  width: 41.6666666667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.3333333333%;
+}
+
+.col-8 {
+  width: 66.6666666667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.3333333333%;
+}
+
+.col-11 {
+  width: 91.6666666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.element {
+  width: 200px;
+  height: 100px;
+  top: 350px;
+}
+
+.black-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes go-up {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 100px;
+  }
+}
+@keyframes go-up {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .media {
+    font-size: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .media {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .media {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .media {
+    font-size: 22px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -13,6 +13,9 @@ $alt-color: green;
 // Import Mixins
 @use './helpers/mixins' as *;
 
+// Import Functions
+@use './helpers/functions' as *;
+
 .header {
     color: $alt-color;
 }
@@ -327,3 +330,144 @@ $dimensions: 0;
     }
     $dimensions: $dimensions + 100
 }
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Each + Maps
+
+$themes: red, green, blue;
+
+@each $theme in $themes {
+    .#{$theme}-theme {
+        .product {
+            background-color: white;
+            border-bottom: 2px solid $theme; 
+            .title {
+                color: $theme;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+$socials: (
+    "facebook": blue,
+    "youtube": red,
+    "github": black
+);
+
+@each $name, $color in $socials {
+    .#{$name} {
+        background-color: $color;
+        color: white;
+        &::before {
+            content: $name;
+        }
+    }
+}
+
+$classes: 'one' 20px red, "two" 15px green, "three" 22px blue;
+
+@each $class, $font, $color in $classes {
+    .#{$class} {
+        font-size: $font;
+        background-color: $color;
+        color: white;
+        padding: $font / 2;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Loop => While
+
+$start: 1;
+
+@while $start <= 10 {
+    .width-#{$start} {
+        width: $start * 100px;
+        height: ($start * 100px) / 2;
+    }
+    $start: $start + 1;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+// create Frid System
+
+$grid_cols: 12;
+
+@for $i from 1 through $grid_cols {
+    .col-#{$i} {
+        width: percentage($i / $grid_cols);
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Function
+
+$width: 200px;
+
+.element {
+    width: $width;
+    height: half($width);
+    top: calculate(100px, 200px, 50px);
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Mixin Eith Content
+
+.black-overlay {
+    @include overlay(black, 0.5);
+}
+
+@mixin keyF($anim-name) {
+    @-webkit-keyframes #{$anim-name} {
+        @content;
+    }
+
+    @keyframes #{$anim-name} {
+        @content;
+    }
+}
+
+@include keyF(fade-in){
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@include keyF(go-up){
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: 100px;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+// If Condition + Mixin + Content
+
+.media {
+    @include breakpoints(mobile) {
+        font-size: 15px;
+    }
+    @include breakpoints(small) {
+        font-size: 18px;
+    }
+    @include breakpoints(medium) {
+        font-size: 20px;
+    }
+    @include breakpoints(large) {
+        font-size: 22px;
+    }
+}
+
+/// Kurs Done!
+
